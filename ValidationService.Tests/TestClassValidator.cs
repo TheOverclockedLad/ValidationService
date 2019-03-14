@@ -3,7 +3,7 @@
 namespace ValidationService.Tests
 {
     [TestClass]
-    public class TestAbstractClassValidator : Validator
+    public class TestClassValidator : Business.Validator
     {
         [TestMethod]
         public void Validate_ReturnCardTypeAmex()

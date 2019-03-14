@@ -1,6 +1,6 @@
-﻿namespace ValidationService
+﻿namespace ValidationService.Business
 {
-    public abstract class Validator
+    public class Validator
     {
         bool IsPrime(int number)
         {
@@ -16,7 +16,7 @@
             return false;
         }
 
-        protected string Validate(long number, System.DateTime expiry)
+        public string Validate(long number, System.DateTime expiry)
         {
             byte firstDigit = (byte)(number / System.Math.Pow(10, System.Math.Floor(System.Math.Log10(number))));
             byte digits = (byte)System.Math.Floor(System.Math.Log10(number) + 1);
