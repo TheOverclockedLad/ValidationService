@@ -76,10 +76,6 @@
     <Compile Include="TestValidationServiceContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ValidationService.Business\ValidationService.Business.csproj">
-      <Project>{65185300-74b9-4907-b2dd-1cd4318516fd}</Project>
-      <Name>ValidationService.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ValidationService\ValidationService.csproj">
       <Project>{B0AED216-EA57-449C-950A-E432B85B105A}</Project>
       <Name>ValidationService</Name>

@@ -2,12 +2,11 @@
 {
     public class CreditCard
     {
-        [System.ComponentModel.DataAnnotations.Key]
-        [System.ComponentModel.DataAnnotations.Schema.Column(Order = 0)]
+        public int Id { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Schema.Index(IsUnique = true)]
         public long Number { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Key]
-        [System.ComponentModel.DataAnnotations.Schema.Column(Order = 1)]
         public System.DateTime ExpiryDate { get; set; }
     }
 }

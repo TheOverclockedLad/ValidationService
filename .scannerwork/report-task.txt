@@ -1,6 +1,0 @@
-projectKey=validationService-dotNET-Dev-AkhileshSK
-serverUrl=https://code.perennialsys.com/sonar
-serverVersion=7.1.0.11001
-dashboardUrl=https://code.perennialsys.com/sonar/dashboard/index/validationService-dotNET-Dev-AkhileshSK
-ceTaskId=AWmkisn-FMRLTKIIKwap
-ceTaskUrl=https://code.perennialsys.com/sonar/api/ce/task?id=AWmkisn-FMRLTKIIKwap
