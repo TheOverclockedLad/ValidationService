@@ -117,15 +117,12 @@
     <Compile Include="Migrations\201903221444576_Initial.Designer.cs">
       <DependentUpon>201903221444576_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903261001415_AlterCreditCardDropId.cs" />
-    <Compile Include="Migrations\201903261001415_AlterCreditCardDropId.Designer.cs">
-      <DependentUpon>201903261001415_AlterCreditCardDropId.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CreditCard.cs" />
     <Compile Include="Models\IValidationServiceContext.cs" />
     <Compile Include="Models\ValidationServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Business\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -143,15 +140,6 @@
     <EmbeddedResource Include="Migrations\201903221444576_Initial.resx">
       <DependentUpon>201903221444576_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903261001415_AlterCreditCardDropId.resx">
-      <DependentUpon>201903261001415_AlterCreditCardDropId.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ValidationService.Business\ValidationService.Business.csproj">
-      <Project>{65185300-74b9-4907-b2dd-1cd4318516fd}</Project>
-      <Name>ValidationService.Business</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

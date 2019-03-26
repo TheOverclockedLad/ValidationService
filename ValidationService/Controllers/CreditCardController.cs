@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Description;
 using ValidationService.Business;
 using ValidationService.Models;
@@ -12,7 +11,7 @@ namespace ValidationService.Controllers
     public class CreditCardController : ApiController
     {
         private IValidationServiceContext db = new ValidationServiceContext();
-        private Validator validator = new Validator();
+        private Main validator = new Main();
 
         /// <summary>
         /// Default constructor
@@ -31,19 +30,29 @@ namespace ValidationService.Controllers
         /// POST method which validates the credit card
         /// </summary>
         /// <param name="creditCard">The CreditCard model instance to be validated</param>
-        /// <returns>200 OK if the validation succeeds; 400 Bad Request if the validation fails</returns>
+        /// <response code="200">OK; Validation succeeded</response>
+        /// <response code="400">Bad Request; Validation failed</response>
+        /// <response code="404">Not Found; Card doesn't exist</response>
         [ResponseType(typeof(string))]
         public IHttpActionResult PostValidateCreditCard(CreditCard creditCard)
         {
-            if (ModelState.IsValid && db.CreditCards.FirstOrDefault(cc => cc.Number == creditCard.Number) != null)
-            {
-                string result = validator.Validate(creditCard.Number, creditCard.ExpiryDate);
-                return Ok(result);
-            }
-            //else if (ModelState.IsValid && db.CreditCards.FirstOrDefault(cc => cc.Number == creditCard.Number) == null)
-                //return NotFound();
-            else
+            if (!ModelState.IsValid)
                 return BadRequest();
+
+            string result = "Card type: " + validator.CardType(creditCard.Number);
+
+            if (validator.IsValid(creditCard.Number, creditCard.ExpiryDate))
+            {
+                if (db.CreditCards.Find(creditCard.Number, creditCard.ExpiryDate) != null)
+                {
+                    result += "; Result of validation: Valid card";
+                    return Ok(result);
+                }
+                else
+                    return NotFound();
+            }
+            else
+                return Ok("Invalid card");
         }
 
         /// <summary>
