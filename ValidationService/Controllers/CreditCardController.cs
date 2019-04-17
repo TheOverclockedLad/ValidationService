@@ -44,12 +44,6 @@ namespace ValidationService.Controllers
 
             if (validator.IsValid(creditCard.Number, creditCard.ExpiryDate))
             {
-                //System.Data.SqlClient.SqlParameter countParam = new System.Data.SqlClient.SqlParameter("count", System.Data.SqlDbType.TinyInt) { Direction = System.Data.ParameterDirection.Output };
-                //db.CreditCards.SqlQuery("EXECUTE CountCreditCardsSP @expiryDate = {0}, @number = {1}, @count = count OUTPUT", creditCard.ExpiryDate, creditCard.Number, countParam);
-
-                //byte count = (byte)countParam.Value;
-
-                //if (count == 1)
                 if (db.CreditCards.SqlQuery("EXECUTE CountCreditCardsSP @expiryDate = {0}, @number = {1}", creditCard.ExpiryDate, creditCard.Number).Count() == 1)
                 {
                     result += "; Result of validation: Valid card";
@@ -59,7 +53,10 @@ namespace ValidationService.Controllers
                     return NotFound();
             }
             else
-                return Ok("Invalid card");
+            {
+                result += "; Result of validation: Invalid card";
+                return Ok(result);
+            }
         }
 
         /// <summary>

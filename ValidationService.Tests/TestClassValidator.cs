@@ -20,16 +20,6 @@ namespace ValidationService.Tests
         [TestMethod]
         public void ShouldNotReturnCardTypeAmex()
         {
-            // number consisting of 15 digits and starting with 4
-            Assert.AreNotEqual("Amex", CardType(445981456357981));
-
-            // number consisting of 14 digits and starting with 3
-            Assert.AreNotEqual("Amex", CardType(34598145635798));
-
-            // number consisting of 16 digits and starting with 3
-            Assert.AreNotEqual("Amex", CardType(3459814563579810));
-
-            // number consisting of 17 digits and starting with 4
             Assert.AreNotEqual("Amex", CardType(44598145635798190));
         }
 
@@ -54,16 +44,6 @@ namespace ValidationService.Tests
         [TestMethod]
         public void ShouldNotReturnCardTypeJCB()
         {
-            // number consisting of 15 digits and starting with 4
-            Assert.AreNotEqual("JCB", CardType(445981456357981));
-
-            // number consisting of 14 digits and starting with 3
-            Assert.AreNotEqual("JCB", CardType(34598145635798));
-
-            // number consisting of 17 digits and starting with 3
-            Assert.AreNotEqual("JCB", CardType(34598145635798101));
-
-            // number consisting of 17 digits and starting with 4
             Assert.AreNotEqual("JCB", CardType(44598145635798101));
         }
 
@@ -88,17 +68,7 @@ namespace ValidationService.Tests
         [TestMethod]
         public void ShouldNotReturnCardTypeVisa()
         {
-            // number consisting of 15 digits and starting with 4
-            Assert.AreNotEqual("Visa", CardType(444499991010234));
-
-            // number consisting of 16 digits and starting with 1
-            Assert.AreNotEqual("Visa", CardType(1444999910102345));
-
-            // number consisting of 17 digits and starting with 9
             Assert.AreNotEqual("Visa", CardType(94449999101023458));
-
-            // number consisting of 17 digits and starting with 4
-            Assert.AreNotEqual("Visa", CardType(44449999101023456));
         }
 
         [TestMethod]
@@ -122,16 +92,6 @@ namespace ValidationService.Tests
         [TestMethod]
         public void ShouldNotReturnCardTypeMasterCard()
         {
-            // number consisting of 15 digits and starting with 5
-            Assert.AreNotEqual("Master Card", CardType(510599991220011));
-
-            // number consisting of 17 digits and starting with 5
-            Assert.AreNotEqual("Master Card", CardType(51059999122001130));
-
-            // number consisting of 15 digits and starting with 1
-            Assert.AreNotEqual("Master Card", CardType(110599991220011));
-
-            // number consisting of 17 digits and starting with 1
             Assert.AreNotEqual("Master Card", CardType(11059999122001156));
         }
 
